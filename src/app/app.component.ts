@@ -22,4 +22,10 @@ export class AppComponent {
     this.name = this.myserviceService.name;
     console.log("Name after changed: " + this.name);
   }
+
+  onClickSubmit(data: any) {
+    console.log("Email id: " + data.emailid);
+    console.log("Password: " + data.psswd);
+ }
+
 }
