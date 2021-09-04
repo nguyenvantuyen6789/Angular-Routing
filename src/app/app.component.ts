@@ -1,11 +1,26 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MyserviceService } from './myservice.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+
+  animations: [
+    trigger('myanimation',[
+       state('smaller',style({
+          transform : 'translateY(100px)'
+       })),
+       
+       state('larger',style({
+          transform : 'translateY(0px)'
+       })),
+       transition('smaller <=> larger',animate('300ms ease-in'))
+    ])
+ ]
 })
+
 export class AppComponent {
   title = 'Angular-Routing';
   todaydate: any;
@@ -51,6 +66,11 @@ export class AppComponent {
   onClickSubmit(data: any) {
     console.log("Email id: " + data.emailid);
     console.log("Password: " + data.psswd);
+ }
+
+ state: string = "smaller";
+ animate() {
+    this.state= this.state == 'larger' ? 'smaller' : 'larger';
  }
 
 }
