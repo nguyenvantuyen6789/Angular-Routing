@@ -35,8 +35,7 @@ export class AppComponent {
         ])
       ),
       psswd: new FormControl(
-        "123456789",
-        this.passwordvalidation
+        "123456789"
       )
     });
   }
