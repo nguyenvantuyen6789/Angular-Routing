@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { MyserviceService } from './myservice.service';
 import { NewCmpComponent } from './new-cmp/new-cmp.component';
 
 @NgModule({
@@ -21,7 +22,7 @@ import { NewCmpComponent } from './new-cmp/new-cmp.component';
     ])
   ],
 
-  providers: [],
+  providers: [MyserviceService],
   bootstrap: [AppComponent]
 
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MyserviceService } from '../myservice.service';
 
 @Component({
   selector: 'app-new-cmp',
@@ -6,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewCmpComponent implements OnInit {
 
-  name = "Hi there!";
+  address = "Hải Phòng!";
+  time: any;
+  name: any;
 
-  constructor() { }
+  constructor(private myserviceService: MyserviceService) { }
 
   ngOnInit(): void {
+    this.time = this.myserviceService.showTodayDate();
+    this.name = this.myserviceService.name;
   }
 
 }
