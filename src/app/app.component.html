@@ -1,9 +1,9 @@
 <h1>Tuyên</h1>
 <h2>{{todaydate}}</h2>
 
-<form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)">
-    <input type="email" name="emailid" ngModel><br>
-    <input type="password" name="psswd" ngModel><br>
+<form [formGroup]="formdata" #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)">
+    <input type="email" name="emailid" formControlName="emailid"><br>
+    <input type="password" name="psswd" formControlName="psswd"><br>
     <input type="submit" value="Submit">
 </form>
 

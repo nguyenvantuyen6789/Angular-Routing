@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MyserviceService } from './myservice.service';
 
 @Component({
@@ -9,6 +10,8 @@ export class AppComponent {
   title = 'Angular-Routing';
   todaydate: any;
   name: any;
+
+  formdata: any;
 
   constructor(private myserviceService: MyserviceService) {}
 
@@ -21,6 +24,11 @@ export class AppComponent {
     this.myserviceService.name = "Tuyên Nguyễn 18";
     this.name = this.myserviceService.name;
     console.log("Name after changed: " + this.name);
+
+    this.formdata = new FormGroup({
+      emailid: new FormControl("jaynguyengee6789@gmail.com"),
+      psswd: new FormControl("123456789")
+    });
   }
 
   onClickSubmit(data: any) {
