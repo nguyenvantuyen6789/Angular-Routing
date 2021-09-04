@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MyserviceService } from './myservice.service';
 import { NewCmpComponent } from './new-cmp/new-cmp.component';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NewCmpComponent } from './new-cmp/new-cmp.component';
         path: "new-cmp",
         component: NewCmpComponent
       }
-    ])
+    ]),
+    MatSliderModule
   ],
 
   providers: [MyserviceService],
