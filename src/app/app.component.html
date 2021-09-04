@@ -4,7 +4,7 @@
 <form [formGroup]="formdata" #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)">
     <input type="email" name="emailid" formControlName="emailid"><br>
     <input type="password" name="psswd" formControlName="psswd"><br>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" [disabled] = "!formdata.valid">
 </form>
 
 <br />

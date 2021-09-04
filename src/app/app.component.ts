@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MyserviceService } from './myservice.service';
 
 @Component({
@@ -26,9 +26,27 @@ export class AppComponent {
     console.log("Name after changed: " + this.name);
 
     this.formdata = new FormGroup({
-      emailid: new FormControl("jaynguyengee6789@gmail.com"),
-      psswd: new FormControl("123456789")
+      emailid: new FormControl(
+        "jaynguyengee6789@gmail.com",
+        
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("[^ @]*@[^ @]*")
+        ])
+      ),
+      psswd: new FormControl(
+        "123456789",
+        this.passwordvalidation
+      )
     });
+  }
+
+  passwordvalidation(formcontrol: any) {
+    if (formcontrol.value.length >= 6) {
+      return {"passwd" : true};
+    } else {
+      return {"passwd" : false};
+    }
   }
 
   onClickSubmit(data: any) {
